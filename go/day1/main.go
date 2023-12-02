@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -63,11 +64,9 @@ func replaceTextCharWithDigit(l string) []byte {
 	result := []byte{}
 	for i := 0; i < len(l); i++ {
 		for key, textDigit := range getTextDigit() {
-			if i+len(key) <= len(l) {
-				if l[i:i+len(key)] == string(key) {
-					result = append(result, textDigit)
-					break
-				}
+			if strings.HasPrefix(l[i:], key) {
+				result = append(result, textDigit)
+				break
 			}
 		}
 		if bytes.ContainsAny(getTextDigit().getDigits(), string(l[i])) {
