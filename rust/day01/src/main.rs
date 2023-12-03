@@ -60,6 +60,7 @@ fn part_two() -> Result<()> {
             let mut new_line = (0..line.len()).filter_map(|idx| {
                 let current_line = &line[idx..];
 
+                numbers.into_iter().find(predicate)
                 let result: char = if current_line.starts_with("one") {
                     '1'
                 } else if current_line.starts_with("two") {
