@@ -7,7 +7,7 @@ fn main() -> Result<()> {
     println!("Hello, world!");
     part_two();
 
-    //part_one();
+    part_one();
 
     Ok(())
 }
@@ -68,7 +68,6 @@ pub fn part_two() {
                 })
                 .count();
 
-            //println!("Playing for idx: {} - current: {:?}", i, played_games[i]);
             for x in 0..matches {
                 played_games[i + 1 + x] += played_games[i];
             }
